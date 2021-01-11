@@ -28,10 +28,13 @@ using System.Threading.Tasks;
 
 namespace OOP_Exam_S00200536
 {
+
+    /*############################################## ACCOUNT CLASS ###############################################*/
     abstract class Account
     {
 
         /*PROPERTIES ------------------------------------------------------------------------------------------------------*/
+        public string AccountNumber { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string InterestDate { get; set; }
@@ -55,12 +58,76 @@ namespace OOP_Exam_S00200536
             this.Balance -= ammount;
         }// end Withdraw()
 
+        /*Method: ToString()
+                  1) Overrides original ToString method
+                  2) Displays the Account number - LastName, FirstName of 
+                     object in that order */
+        public override string ToString()
+        {
+            return $"{this.AccountNumber} - {this.LastName}, {this.FirstName}";
+        }// end ToString()
+
 
         /*Method: CalculateInterest()
                   1) To be modified by any subclasses */
-        abstract public void CalculateInterest();
+        abstract public decimal CalculateInterest();
     }// end Account Class
 
 
+
+    /*########################################## CURRENT_ACCOUNT CLASS ##########################################*/
+
+    class CurrentAccount : Account
+    {
+        /*ADDITIONAL PROPERTIES -------------------------------------------------------------------------------------------*/
+        public double InterestRate = 0.03;
+
+
+        /*METHODS ---------------------------------------------------------------------------------------------------------*/
+        /*Method: CalculateInterest()
+                  1) */
+        public override decimal CalculateInterest()
+        {
+            decimal rate = 0m;
+            DateTime today = DateTime.Now;
+            DateTime thisYear = new DateTime(01/01/2021);
+
+            if (today >= thisYear)
+            {
+                rate = this.Balance * (decimal)this.InterestRate;
+            }
+            return rate;
+        }// end CalculateInterest()
+
+    }// end CurrentAccount Class
+
+
+
+
+
+    /*########################################## SAVINGS_ACCOUNT CLASS ##########################################*/
+    class SavingsAccount : Account
+    {
+        /*ADDITIONAL PROPERTIES -------------------------------------------------------------------------------------------*/
+        public double InterestRate = 0.06;
+
+
+        /*METHODS ---------------------------------------------------------------------------------------------------------*/
+        /*Method: CalculateInterest()
+                  1) */
+        public override decimal CalculateInterest()
+        {
+            decimal rate = 0m;
+            DateTime today = DateTime.Now;
+            DateTime thisYear = new DateTime(01 / 01 / 2021);
+
+            if (today >= thisYear)
+            {
+                rate = this.Balance * (decimal)this.InterestRate;
+            }
+            return rate;
+        }// end CalculateInterest()
+
+    }// end SavingsAccount Class
 
 }// end Namespace
