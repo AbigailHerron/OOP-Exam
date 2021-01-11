@@ -7,17 +7,17 @@
  Description: Contains the Account, CurrentAccount and SavingsAccount Classes
             
                 ACCOUNT CLASS (abstract class)
- Properties:
- Methods:
+ Properties: AccountNumber, FirstName, LastName, InterestDate, Balance
+ Methods: Deposit, Withdraw, ToString (override), CalculateInterest (abstract)
 
                 CURRENT_ACCOUNT CLASS
- Properties:
- Methods:
+ Additional Properties: InterestRate
+ Additional/Modified Methods: CalculateInterest
  Constructors: Default
 
                 SAVINGS_ACCOUNT CLASS
- Properties:
- Methods:
+ Additional Properties: InterestRate
+ Additional/Modified Methods: CalculateInterest
  Constructors: Default
  ##########################################################################################################################*/
 using System;
