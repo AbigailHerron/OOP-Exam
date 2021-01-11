@@ -11,6 +11,7 @@
  ##########################################################################################################################*/
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,9 +32,18 @@ namespace OOP_Exam_S00200536
     /// </summary>
     public partial class MainWindow : Window
     {
+        /*VARIABLES -------------------------------------------------------------------------------------------------------*/
+        ObservableCollection<Account> accounts = new ObservableCollection<Account>();
+        ObservableCollection<Account> filteredAccounts = new ObservableCollection<Account>();
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            lbxAccounts.ItemsSource = accounts;
         }
     }
 }
