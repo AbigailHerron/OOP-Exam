@@ -35,6 +35,7 @@ namespace OOP_Exam_S00200536
         /*VARIABLES -------------------------------------------------------------------------------------------------------*/
         ObservableCollection<Account> accounts = new ObservableCollection<Account>();
         ObservableCollection<Account> filteredAccounts = new ObservableCollection<Account>();
+        List<TextBlock> fields = new List<TextBlock>();
 
         public MainWindow()
         {
@@ -46,6 +47,13 @@ namespace OOP_Exam_S00200536
         {
             // setting item source for list box
             lbxAccounts.ItemsSource = accounts;
+
+            // adding all text block fields to fields
+            fields.Add(tblkFN);
+            fields.Add(tblkLN);
+            fields.Add(tblkBal);
+            fields.Add(tblkAccType);
+            fields.Add(tblkIntD);
 
             // creating dummy objects from each account
             CurrentAccount c1 = new CurrentAccount();
@@ -88,5 +96,28 @@ namespace OOP_Exam_S00200536
             else
                 lbxAccounts.ItemsSource = null;
         }// end chbx_Click()
+
+        private void lbxAccounts_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            for(int i = 0; i < fields.Count; i++)
+            {
+                
+            }
+        }
+
+        private void btnDeposit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnWithdraw_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnInterest_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
