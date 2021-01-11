@@ -41,6 +41,7 @@ namespace OOP_Exam_S00200536
             InitializeComponent();
         }
 
+        /*EVENT BASED METHODS ---------------------------------------------------------------------------------------------*/
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             // setting item source for list box
@@ -52,16 +53,40 @@ namespace OOP_Exam_S00200536
             SavingsAccount s1 = new SavingsAccount();
             SavingsAccount s2 = new SavingsAccount("00033302", "Terry", "Cruise", "05/01/1992", 300000m);
 
+            // adding dummy objects to list
             accounts.Add(c1);
             accounts.Add(c2);
             accounts.Add(s1);
             accounts.Add(s2);
 
-
-
-
             chbxCA.IsChecked = true;
             chbxSA.IsChecked = true;
-        }
+        }// end Window_Loaded
+
+
+
+        private void chbx_Checked(object sender, RoutedEventArgs e)
+        {
+            if (chbxCA.IsChecked == true && chbxSA.IsChecked == true)
+                lbxAccounts.ItemsSource = accounts;
+            else if (chbxCA.IsChecked == true && chbxSA.IsChecked == false)
+            {
+                foreach (CurrentAccount account in accounts)
+                {
+                    filteredAccounts.Add(account);
+                }
+                lbxAccounts.ItemsSource = filteredAccounts;
+            }
+            else if (chbxCA.IsChecked == false && chbxSA.IsChecked == true)
+            {
+                foreach (CurrentAccount account in accounts)
+                {
+                    filteredAccounts.Add(account);
+                }
+                lbxAccounts.ItemsSource = filteredAccounts;
+            }
+            else
+                lbxAccounts.ItemsSource = null;
+        }// end chbx_Click()
     }
 }
