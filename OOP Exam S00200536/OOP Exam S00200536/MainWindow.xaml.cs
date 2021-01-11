@@ -43,7 +43,25 @@ namespace OOP_Exam_S00200536
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            // setting item source for list box
             lbxAccounts.ItemsSource = accounts;
+
+            // creating dummy objects from each account
+            CurrentAccount c1 = new CurrentAccount();
+            CurrentAccount c2 = new CurrentAccount("12345678", "Steve", "Jobs", "07/04/1984", 15526000m);
+            SavingsAccount s1 = new SavingsAccount();
+            SavingsAccount s2 = new SavingsAccount("00033302", "Terry", "Cruise", "05/01/1992", 300000m);
+
+            accounts.Add(c1);
+            accounts.Add(c2);
+            accounts.Add(s1);
+            accounts.Add(s2);
+
+
+
+
+            chbxCA.IsChecked = true;
+            chbxSA.IsChecked = true;
         }
     }
 }
