@@ -37,8 +37,8 @@ namespace OOP_Exam_S00200536
         public string InterestDate { get; set; }
         public decimal Balance { get; set; }
 
+
         /*METHODS ---------------------------------------------------------------------------------------------------------*/
-        
         /*Method: Deposit()
                   1) Takes in a decimal value
                   2) Adds value to the Balance property */        
@@ -53,8 +53,14 @@ namespace OOP_Exam_S00200536
         public void Withdraw(decimal ammount)
         {
             this.Balance -= ammount;
-        }// end Withdraw
+        }// end Withdraw()
 
 
+        /*Method: CalculateInterest()
+                  1) To be modified by any subclasses */
+        abstract public void CalculateInterest();
     }// end Account Class
+
+
+
 }// end Namespace
