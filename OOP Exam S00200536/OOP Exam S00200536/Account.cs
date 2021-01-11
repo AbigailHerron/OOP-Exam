@@ -99,6 +99,26 @@ namespace OOP_Exam_S00200536
             return rate;
         }// end CalculateInterest()
 
+
+        /*CONSTRUCTORS ----------------------------------------------------------------------------------------------------*/
+        /*Constructor: Default
+                       1) Initialises a blank CurrentAccount object
+                       2) Chains default values to the All constructor*/
+        public CurrentAccount() : this ("00000000", "John", "Doe", "01/01/2000", 1000.00m)
+        {
+        }
+
+
+        /*Constructor: All
+                       1) Assigns all input values when creating a CurrentAccount object */
+        public CurrentAccount(string accNum, string firstN, string lastN, string date, decimal bal)
+        {
+            this.AccountNumber = accNum;
+            this.FirstName = firstN;
+            this.LastName = lastN;
+            this.InterestDate = date;
+            this.Balance = bal;
+        }
     }// end CurrentAccount Class
 
 
@@ -128,6 +148,26 @@ namespace OOP_Exam_S00200536
             return rate;
         }// end CalculateInterest()
 
+
+        /*CONSTRUCTORS ----------------------------------------------------------------------------------------------------*/
+        /*Constructor: Default
+                       1) Initialises a blank SavingsAccount object
+                       2) Chains default values to the All constructor*/
+        public SavingsAccount() : this("00000000", "Jane", "Doe", "01/01/2000", 1000.00m)
+        {
+        }
+
+
+        /*Constructor: All
+                       1) Assigns all input values when creating a SavingsAccount object */
+        public SavingsAccount(string accNum, string firstN, string lastN, string date, decimal bal)
+        {
+            this.AccountNumber = accNum;
+            this.FirstName = firstN;
+            this.LastName = lastN;
+            this.InterestDate = date;
+            this.Balance = bal;
+        }
     }// end SavingsAccount Class
 
 }// end Namespace
